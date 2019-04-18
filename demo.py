@@ -1,14 +1,42 @@
-#!/usr/bin/env python
-
-import grass.script as gscript
-
-def main():
-    #Location: nc_spm_08_grass7
-    #Run Hand Methodology with 3m inundation at 0.5m intervals
-    gscript.run_command("r.watershed", elevation="elevation", accumulation="flowacc", drainage="drainage", stream="streams", threshold=100000, overwrite=True)
-    gscript.run_command("r.to.vect", input="streams", output="streams", type="line", overwrite=True)
-    gscript.run_command("r.stream.distance", stream_rast="streams", direction="drainage", elevation="elevation", method="downstream", difference="above_stream", overwrite=True)
-    gscript.run_command("r.lake.series", elevation="above_stream", start_water_level=0, end_water_level=3, water_level_step=0.5, output="inun", seed_raster="streams", overwrite=True)
-
-if __name__ == '__main__':
-    main()
+import Mapbox
+ 
+class ImageSourceExample: UIViewController, MGLMapViewDelegate {
+override func viewDidLoad() {
+super.viewDidLoad()
+ 
+let mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.darkStyleURL)
+mapView.setCenter(CLLocationCoordinate2D(latitude: 43.457, longitude: -75.789), zoomLevel: 4, animated: false)
+mapView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+mapView.tintColor = .darkGray
+ 
+// Set the map view‘s delegate property.
+mapView.delegate = self
+view.addSubview(mapView)
+}
+ 
+func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
+// Set the coordinate bounds for the raster image.
+let coordinates = MGLCoordinateQuad(
+topLeft: CLLocationCoordinate2D(latitude: 46.437, longitude: -80.425),
+bottomLeft: CLLocationCoordinate2D(latitude: 37.936, longitude: -80.425),
+bottomRight: CLLocationCoordinate2D(latitude: 37.936, longitude: -71.516),
+topRight: CLLocationCoordinate2D(latitude: 46.437, longitude: -71.516))
+ 
+// Create an MGLImageSource, used to add georeferenced raster images to a map.
+if let radarImage = UIImage(named: "radar.gif") {
+let source = MGLImageSource(identifier: "radar", coordinateQuad: coordinates, image: radarImage)
+style.addSource(source)
+ 
+// Create a raster layer from the MGLImageSource.
+let radarLayer = MGLRasterStyleLayer(identifier: "radar-layer", source: source)
+ 
+// Insert the raster layer below the map's symbol layers.
+for layer in style.layers.reversed() {
+if !layer.isKind(of: MGLSymbolStyleLayer.self) {
+style.insertLayer(radarLayer, above: layer)
+break
+}
+}
+}
+}
+}
