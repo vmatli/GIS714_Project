@@ -29,7 +29,7 @@ var frameCount = 5;
 var currentImage = 0;
  
 function getPath() {
-return "./";
+return "./Example.gif";
 }
  
 map.on('load', function() {
@@ -38,10 +38,10 @@ map.addSource("radar", {
 type: "image",
 url: getPath(),
 coordinates: [
-[-80.425, 46.437],
-[-71.516, 46.437],
-[-71.516, 37.936],
-[-80.425, 37.936]
+[-95, 31],
+[-87, 31],
+[-87, 27],
+[-95, 27]
 ]
 });
 map.addLayer({
