@@ -43,10 +43,10 @@
     //Convert Bounds to match mapbox gl source specs
     function grassBbox(bounds) {
         return [
-            [bounds[0][1], bounds[1][0]],
             [bounds[1][1], bounds[1][0]],
-            [bounds[1][1], bounds[0][0]],
-            [bounds[0][1], bounds[0][0]]
+            [bounds[0][1], bounds[1][0]],
+            [bounds[0][1], bounds[0][0]],
+            [bounds[1][1], bounds[0][0]]
         ];
     }
     
