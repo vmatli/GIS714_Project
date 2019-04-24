@@ -40,7 +40,7 @@
     
     //Gets the current image 
     function ROMSPath() {
-        return "images/" + ROMSInfo[currentImage].file;
+        return "images/" + ROMSInfo[ROMSImage].file;
     }
     
      //ROMS layer
@@ -87,7 +87,7 @@
         });
         //Will update image every 200ms
         setInterval(function() {
-            currentImage = (currentImage + 1) % frameCount; 
+            ROMSImage = (ROMSImage + 1) % frameCount; 
             map.getSource("ROMS").updateImage({ url: ROMSPath() });
         }, 200);
 
