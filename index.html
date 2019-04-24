@@ -87,7 +87,7 @@
         });
         //Will update image every 200ms
         setInterval(function() {
-            ROMSImage = (ROMSImage + 1) % frameCount; 
+            ROMSImage = (ROMSImage + 1) % ROMSCount; 
             map.getSource("ROMS").updateImage({ url: ROMSPath() });
         }, 200);
 
@@ -97,7 +97,7 @@
         map.addSource("Wind", {
             type: "image",
             //Replace static file with function
-            url: Windpath(), 
+            url: WindPath(), 
             //Gets the bounds of the first image listed in images/data_file.js
             coordinates: visualBbox(WindInfo[0].bounds)
         });
@@ -117,7 +117,7 @@
         //Will update image every 200ms
         setInterval(function() {
             WindImage = (WindImage + 1) % WindCount;
-            map.getSource("Wind").updateImage({ url: Windpath() });
+            map.getSource("Wind").updateImage({ url: WindPath() });
         }, 200);
       
 
