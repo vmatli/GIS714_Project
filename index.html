@@ -88,7 +88,7 @@
         //Will update image every 200ms
         setInterval(function() {
             currentImage = (currentImage + 1) % frameCount; 
-            map.getSource("Visual").updateImage({ url: getPath() });
+            map.getSource("Wind").updateImage({ url: getPath() });
         }, 200);
 
         
