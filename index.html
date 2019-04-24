@@ -33,21 +33,21 @@
     //Add Navigation Controls
     map.addControl(new mapboxgl.NavigationControl());
     //The total numbers of images found in data_file.js 
-    var frameCount = layerInfos.length;
+    var ROMSCount = ROMSInfo.length;
 
     //Default used to start animation with first image
-    var currentImage = 0;
+    var ROMSImage = 0;
     
     //Gets the current image 
     function getPath() {
-        return "images/" + layerInfos[currentImage].file;
+        return "images/" + ROMSInfo[currentImage].file;
     }
     
      //ROMS layer
-     var ROMSImage=0;
-     var ROMSCount=ROMSInfo.length;
-     function ROMSpath() {
-        return "images/" + ROMSInfo[ROMSImage].file;
+     var WindImage=0;
+     var WindCount=WindInfo.length;
+     function WindPath() {
+        return "images/" + WindInfo[WindImage].file;
      }   
     //Convert Bounds to match mapbox gl source specs
     function visualBbox(bounds) {
@@ -73,13 +73,13 @@
             //Replace static file with function
             url: getPath(), 
             //Gets the bounds of the first image listed in images/data_file.js
-            coordinates: visualBbox(layerInfos[0].bounds)
+            coordinates: visualBbox(WindInfo[0].bounds)
         });
         //Now add a new layer to the map from the source you created
         map.addLayer({
-            id: "Wind-layer",
+            id: "ROMS-layer",
             "type": "raster",
-            "source": "Wind",
+            "source": "ROMS",
             "paint": {
             "raster-fade-duration": 0
             }
@@ -88,24 +88,24 @@
         //Will update image every 200ms
         setInterval(function() {
             currentImage = (currentImage + 1) % frameCount; 
-            map.getSource("Wind").updateImage({ url: getPath() });
+            map.getSource("ROMS").updateImage({ url: getPath() });
         }, 200);
 
 
 
 
-        map.addSource("ROMS", {
+        map.addSource("Wind", {
             type: "image",
             //Replace static file with function
-            url: ROMSpath(), 
+            url: Windpath(), 
             //Gets the bounds of the first image listed in images/data_file.js
-            coordinates: visualBbox(ROMSInfo[0].bounds)
+            coordinates: visualBbox(WindInfo[0].bounds)
         });
         //Now add a new layer to the map from the source you created
         map.addLayer({
-            id: "ROMS-layer",
+            id: "Wind-layer",
             "type": "raster",
-            "source": "ROMS",
+            "source": "Wind",
             'layout': {
                 'visibility': 'visible'
             },
@@ -116,8 +116,8 @@
         });
         //Will update image every 200ms
         setInterval(function() {
-            ROMSImage = (ROMSImage + 1) % ROMSCount;
-            map.getSource("ROMS").updateImage({ url: ROMSpath() });
+            WindImage = (WindImage + 1) % WindCount;
+            map.getSource("Wind").updateImage({ url: Windpath() });
         }, 200);
       
 
