@@ -39,7 +39,7 @@
     var ROMSImage = 0;
     
     //Gets the current image 
-    function getPath() {
+    function ROMSPath() {
         return "images/" + ROMSInfo[currentImage].file;
     }
     
@@ -68,12 +68,12 @@
     
         //Create first map. 
         
-        map.addSource("Wind", {
+        map.addSource("ROMS", {
             type: "image",
             //Replace static file with function
-            url: WindPath(), 
+            url: ROMSPath(), 
             //Gets the bounds of the first image listed in images/data_file.js
-            coordinates: visualBbox(WindInfo[0].bounds)
+            coordinates: visualBbox(ROMSInfo[0].bounds)
         });
         //Now add a new layer to the map from the source you created
         map.addLayer({
@@ -88,7 +88,7 @@
         //Will update image every 200ms
         setInterval(function() {
             currentImage = (currentImage + 1) % frameCount; 
-            map.getSource("ROMS").updateImage({ url: getPath() });
+            map.getSource("ROMS").updateImage({ url: ROMSPath() });
         }, 200);
 
 
