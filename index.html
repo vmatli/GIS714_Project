@@ -18,6 +18,7 @@
 <!-- Loads data from data_file.js -->
 
 <script src="Wind/Wind.js"></script>
+<script src="images/data_file.js"></script>
 
 <script>
     //Sets up the map
@@ -59,11 +60,11 @@
             [bounds[0][1], bounds[0][0]]
         ];
     }
-    ROMSInfo="images/data_file.js"
+
     var ROMSImage=0;
-    var ROMSCount=ROMSInfo.length;
+    var ROMSCount=layerInfos2.length;
     function ROMSpath() {
-            return "images/" + ROMSInfo[ROMSImage].file;
+            return "images/" + layerInfos2[ROMSImage].file;
         }   
         
     
@@ -101,7 +102,7 @@
             //Replace static file with function
             url: ROMSpath(), 
             //Gets the bounds of the first image listed in images/data_file.js
-            coordinates: visualBboxR(ROMSInfo[0].bounds)
+            coordinates: visualBboxR(layerInfos2[0].bounds)
         });
         //Now add a new layer to the map from the source you created
         map.addLayer({
