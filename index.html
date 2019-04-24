@@ -42,8 +42,15 @@
     function getPath() {
         return "images/" + layerInfos[currentImage].file;
     }
+    
+     //ROMS layer
+     var ROMSImage=0;
+     var ROMSCount=ROMSInfo.length;
+     function ROMSpath() {
+        return "images/" + ROMSInfo[ROMSImage].file;
+     }   
     //Convert Bounds to match mapbox gl source specs
-    function visualBboxW(bounds) {
+    function visualBbox(bounds) {
         return [
             [bounds[1][1], bounds[1][0]],
             [bounds[0][1], bounds[1][0]],
@@ -52,14 +59,6 @@
         ];
     }
 
-    function visualBboxR(bounds) {
-        return [
-            [bounds[1][1], bounds[1][0]],
-            [bounds[0][1], bounds[1][0]],
-            [bounds[0][1], bounds[0][0]],
-            [bounds[1][1], bounds[0][0]]
-        ];
-    }
 
     
         
@@ -74,7 +73,7 @@
             //Replace static file with function
             url: getPath(), 
             //Gets the bounds of the first image listed in images/data_file.js
-            coordinates: visualBboxW(layerInfos[0].bounds)
+            coordinates: visualBbox(layerInfos[0].bounds)
         });
         //Now add a new layer to the map from the source you created
         map.addLayer({
@@ -93,19 +92,14 @@
         }, 200);
 
 
-        //ROMS layer
-        var ROMSImage=0;
-        var ROMSCount=ROMSInfo.length;
-        function ROMSpath() {
-            return "images/" + ROMSInfo[ROMSImage].file;
-            }   
+
 
         map.addSource("ROMS", {
             type: "image",
             //Replace static file with function
             url: ROMSpath(), 
             //Gets the bounds of the first image listed in images/data_file.js
-            coordinates: visualBboxR(ROMSInfo[0].bounds)
+            coordinates: visualBbox(ROMSInfo[0].bounds)
         });
         //Now add a new layer to the map from the source you created
         map.addLayer({
