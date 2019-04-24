@@ -1,4 +1,4 @@
-var ROMSInfo = [
+var WindInfo = [
     {title: "frame_001_delay-0.1s",file: "frame_001_delay-0.1s.png",bounds: [[28.24, -94.58 ],[29.69, -89.54]], opacity: 1.0}
 , {title: "frame_002_delay-0.1s",file: "frame_002_delay-0.1s.png",bounds: [[28.24, -94.58 ],[29.69, -89.54]], opacity: 1.0}
 , {title: "frame_003_delay-0.1s",file: "frame_003_delay-0.1s.png",bounds: [[28.24, -94.58 ],[29.69, -89.54]], opacity: 1.0}
