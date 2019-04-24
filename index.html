@@ -95,9 +95,9 @@
 
         //ROMS layer
         var ROMSImage=0;
-        var ROMSCount=layerInfos2.length;
+        var ROMSCount=ROMSInfo.length;
         function ROMSpath() {
-            return "images/" + layerInfos2[ROMSImage].file;
+            return "images/" + ROMSInfo[ROMSImage].file;
             }   
 
         map.addSource("ROMS", {
@@ -105,7 +105,7 @@
             //Replace static file with function
             url: ROMSpath(), 
             //Gets the bounds of the first image listed in images/data_file.js
-            coordinates: visualBboxR(layerInfos2[0].bounds)
+            coordinates: visualBboxR(ROMSInfo[0].bounds)
         });
         //Now add a new layer to the map from the source you created
         map.addLayer({
