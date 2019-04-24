@@ -40,7 +40,7 @@
     
     //Gets the current image 
     function getPath() {
-        return "Wind/" + layerInfos[currentImage].file;
+        return "images/" + layerInfos[currentImage].file;
     }
     //Convert Bounds to match mapbox gl source specs
     function visualBboxW(bounds) {
@@ -61,11 +61,7 @@
         ];
     }
 
-    var ROMSImage=0;
-    var ROMSCount=layerInfos2.length;
-    function ROMSpath() {
-            return "images/" + layerInfos2[ROMSImage].file;
-        }   
+    
         
     
     //We need to wait for the map to load before we add the raster layer
@@ -98,7 +94,11 @@
 
 
         //ROMS layer
-        
+        var ROMSImage=0;
+        var ROMSCount=layerInfos2.length;
+        function ROMSpath() {
+            return "images/" + layerInfos2[ROMSImage].file;
+            }   
 
         map.addSource("ROMS", {
             type: "image",
