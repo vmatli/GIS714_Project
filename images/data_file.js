@@ -1,4 +1,4 @@
-var layerInfos = [
+var ROMSInfo = [
      {title: "frame_000_delay-0.5s",file: "frame_000_delay-0.5s.png",bounds: [[27, -95], [31, -87]], opacity: 1.0}
 , {title: "frame_001_delay-0.5s",file: "frame_001_delay-0.5s.png",bounds: [[27, -95], [31, -87]], opacity: 1.0}
 , {title: "frame_002_delay-0.5s",file: "frame_002_delay-0.5s.png",bounds: [[27, -95], [31, -87]], opacity: 1.0}
