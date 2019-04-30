@@ -3,7 +3,7 @@
 <head>
     <meta charset='utf-8' />
     <title>GIS 715 Project Visuals</title>
-    <h2>Significant earthquakes in 2015</h2>
+    
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
@@ -65,7 +65,7 @@
 
 <script src="images/Wind.js"></script>
 <script src="images/data_file.js"></script>
-
+<h2>Significant earthquakes in 2015</h2>
 <script>
     //Sets up the map
     mapboxgl.accessToken = 'pk.eyJ1Ijoidm1hdGxpIiwiYSI6ImNqczR5ZmMxeTBhNngzeXJ3bGZ0czJuZ3QifQ.VSDH4msUykRloXReWVu_-A';
@@ -76,6 +76,7 @@
 
         style: 'mapbox://styles/mapbox/dark-v10',
     });
+    
     //Add Navigation Controls
     map.addControl(new mapboxgl.NavigationControl());
     //The total numbers of images found in data_file.js 
