@@ -181,7 +181,7 @@
         });
         //Now add a new layer to the map from the source you created
         map.addLayer({
-            id: "ROMS-layer",
+            id: "ROMS-layer-1988",
             "type": "raster",
             "source": "ROMS",
             'layout': {
@@ -210,7 +210,7 @@
         });
         //Now add a new layer to the map from the source you created
         map.addLayer({
-            id: "Wind-layer",
+            id: "ROMS-layer-2003",
             "type": "raster",
             "source": "Wind",
             'layout': {
@@ -230,7 +230,7 @@
 
     });
 
-    var toggleableLayerIds = [ 'ROMS-layer', 'Wind-layer' ];
+    var toggleableLayerIds = [ 'ROMS-layer-1988', 'ROMS-layer-2003' ];
 
     for (var i = 0; i < toggleableLayerIds.length; i++) {
     var id = toggleableLayerIds[i];
