@@ -216,6 +216,10 @@ var WindInfo = [
 , {title: "frame_212_delay-0.1s",file: "frame_212_delay-0.1s.png",bounds: [[27.41, -94.64], [30.28, -87.78]], opacity: 1.0}
 , {title: "frame_213_delay-0.1s",file: "frame_213_delay-0.1s.png",bounds: [[27.41, -94.64], [30.28, -87.78]], opacity: 1.0}
 , {title: "frame_214_delay-0.1s",file: "frame_214_delay-0.1s.png",bounds: [[27.41, -94.64], [30.28, -87.78]], opacity: 1.0}
-
+, {title: "frame_215_delay-0.1s",file: "frame_210_delay-0.1s.png",bounds: [[27.41, -94.64], [30.28, -87.78]], opacity: 1.0}
+, {title: "frame_216_delay-0.1s",file: "frame_211_delay-0.1s.png",bounds: [[27.41, -94.64], [30.28, -87.78]], opacity: 1.0}
+, {title: "frame_217_delay-0.1s",file: "frame_212_delay-0.1s.png",bounds: [[27.41, -94.64], [30.28, -87.78]], opacity: 1.0}
+, {title: "frame_218_delay-0.1s",file: "frame_213_delay-0.1s.png",bounds: [[27.41, -94.64], [30.28, -87.78]], opacity: 1.0}
+, {title: "frame_219_delay-0.1s",file: "frame_214_delay-0.1s.png",bounds: [[27.41, -94.64], [30.28, -87.78]], opacity: 1.0}
 
 ];
